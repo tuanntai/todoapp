@@ -45,7 +45,6 @@ function TodoItem({key,todoItem, HandleCheckChild, HandleRemoveClick, HandleRemo
       <span className="remove-icon" 
             onClick={()=>HandleRemoveClick(todoItem)}>
        <RemoveIcon 
-      primary='#4fff4f' 
       cursor="pointer" 
       size="large" 
       />

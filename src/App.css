@@ -18,7 +18,9 @@
     flex-direction: row;
     align-items: center;
 }
-
+.remove-icon{
+    color: #e66465;
+}
 
 
 @media screen and (max-width: 414px){
