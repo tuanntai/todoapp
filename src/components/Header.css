@@ -1,0 +1,13 @@
+.header-title p{
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 414px){
+    .header-title{
+        font-size: 50%;
+        background: coral;
+    }
+}
