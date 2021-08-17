@@ -16,6 +16,7 @@ import RemoveIcon from '@atlaskit/icon/glyph/trash';
 function App() {
   const [TodoList, setTodoList] = useState([]);
   const [TextInput, setTextInput] = useState("");
+  const [Check,setCheck]=useState(false);
 
 
 
@@ -50,14 +51,17 @@ function App() {
     let checked = e.target.checked;
     setTodoList((prevState) =>
       prevState.map(todoItem => {if(checked===true){
-        return ( { ...todoItem, isChecked: checked, isComplete:true } )
+        setCheck(true); 
+        return ( { ...todoItem, isChecked: checked, isComplete:true })
       }else if(checked===false){
+        setCheck(false); 
         return ( { ...todoItem, isChecked: checked, isComplete:false } )
       }
           
       }
       )
-    )
+    );
+    
   }, []);
 
   const HandleCheckChild = useCallback((id) => {
@@ -71,7 +75,7 @@ function App() {
         }
       }
       )
-    )
+    );
   }, []);
 
   const HandleRemoveClick = useCallback((TodoItem)=>{
@@ -81,7 +85,7 @@ function App() {
      } 
      setTodoList([...TodoList]);
     }
-
+    
   ,[TodoList])
 
 
@@ -94,7 +98,7 @@ function App() {
       }
     })
     setTodoList([...TodoList]);
-    
+    setCheck(false);  
     // setTodoList([...TodoList]);
   },[TodoList])
 
@@ -102,7 +106,7 @@ function App() {
     <div className="App scrollbar">
       <Header />
       <div className="input-container">
-        <Checkbox onChange={HandleCheckAll} size="large" name="parent" />
+        <Checkbox isChecked={Check} onChange={HandleCheckAll} size="large" name="parent" />
         <span className="remove-icon" 
             onClick={()=>HandleRemoveChecked()}>
        <RemoveIcon 

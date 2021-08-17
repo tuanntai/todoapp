@@ -6,11 +6,7 @@
     background: white;
     border-radius: 2%;
     overflow-y: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    overflow-x: hidden;
 }
 
 .input-container{
@@ -22,14 +18,30 @@
     color: #e66465;
 }
 
+.todoItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
 
-@media screen and (max-width: 414px){
+.header-title p{
+    font-size: 30px;
+    text-align: center;
+}
+
+.App::-webkit-scrollbar {
+   display:none;
+  }
+
+
+
+@media screen and (max-width: 375px){
     .App{
-    width: 80%;
-    height: 90%;
-    border-radius: 3%;
+        width: 300px;
     }
     .header-title{
         font-size: 24px;
+        
     }
 }

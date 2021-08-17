@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem.js'
 
-// import { Container } from './styles';
 
 function TodoList({TodoList, HandleCheckChild, HandleRemoveClick, HandleRemoveChecked}) {
   return (<div>
