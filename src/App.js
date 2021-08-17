@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Textfield from '@atlaskit/textfield';
 import Button from '@atlaskit/button';
 import { v1} from "uuid";
@@ -11,14 +11,23 @@ import Checkbox from '@atlaskit/checkbox';
 import RemoveIcon from '@atlaskit/icon/glyph/trash';
 
 
-
+const TODO_APP_STORAGE_KEY = 'TODO_APP'
 
 function App() {
   const [TodoList, setTodoList] = useState([]);
   const [TextInput, setTextInput] = useState("");
   const [Check,setCheck]=useState(false);
 
+  useEffect(()=>{
+    const storagedTodoList = localStorage.getItem(TODO_APP_STORAGE_KEY);
+    if(storagedTodoList){
+      setTodoList(JSON.parse(storagedTodoList));
+    }
+  },[])
 
+  useEffect(()=>{
+    localStorage.setItem(TODO_APP_STORAGE_KEY,JSON.stringify(TodoList))
+  },[TodoList])
 
 
   const HandleTextInput = useCallback((e) => {
